@@ -1,0 +1,45 @@
+﻿@model ShoppingMenegment.Models.Entity.Branch
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="text-center">Edit Branch</h1>
+<hr />
+
+<div class="mx-auto d-block">
+    <form class="mx-auto"  asp-action="Edit">
+        <div class="row">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group col">
+                <label asp-for="Name" for="Name" class="control-label ">Name</label>
+                <input asp-for="Name" class="form-control" placeholder="Name">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group col">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" placeholder="Address" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group col">
+                <label asp-for="ContactNumber" class="control-label"></label>
+                <input asp-for="ContactNumber" class="form-control" placeholder="Contact Number" />
+                <span asp-validation-for="ContactNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group col">
+                <label asp-for="StoreId" class="control-label"></label>
+                <select asp-for="StoreId" class="form-control" asp-items="ViewBag.StoreId"></select>
+            </div>
+
+        </div>
+        <div class="form-group mt-4 text-center">
+            <input type="submit" value="Create" class="btn btn-outline-success btn-lg" />
+        </div>
+    </form>
+</div>
+
+<div>
+    <a class="btn btn-outline-info btn-lg text-decoration-none  float-end" asp-action="Index">Back to List</a>
+</div>
+

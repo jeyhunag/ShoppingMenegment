@@ -1,0 +1,38 @@
+﻿@model ShoppingMenegment.Models.Entity.Orderitem
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<h1 class="text-center">Edit Order Items</h1>
+<hr />
+<div class="mx-auto d-block">
+    <form class="mx-auto"  asp-action="Edit">
+        <div class="row">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group col">
+                <label asp-for="ProductCount" for="ProductCount" class="control-label ">Product Count</label>
+                <input asp-for="ProductCount" class="form-control" placeholder="Product Count">
+                <span asp-validation-for="ProductCount" class="text-danger"></span>
+            </div>
+            <div class="form-group col">
+                <label asp-for="OrderId" class="control-label"></label>
+                <select asp-for="OrderId" class="form-control" asp-items="ViewBag.OrderId"></select>
+            </div>
+            <div class="form-group col">
+                <label asp-for="ProductId" class="control-label"></label>
+                <select asp-for="ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
+            </div>
+        </div>
+        <div class="form-group mt-4 text-center">
+            <input type="submit" value="Create" class="btn btn-outline-success btn-lg" />
+        </div>
+    </form>
+</div>
+
+<div>
+    <a class="btn btn-outline-info btn-lg text-decoration-none  float-end" asp-action="Index">Back to List</a>
+</div>
+

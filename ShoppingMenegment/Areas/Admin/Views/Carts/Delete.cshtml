@@ -1,0 +1,32 @@
+﻿@model ShoppingMenegment.Models.Entity.Cart
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<h1 class="text-center mb-4 display-3">Delete</h1>
+
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <!--Card 1-->
+        <div class=" my-2  col-md-6">
+            <div class="card text-dark h-100">
+                <div class="card-header text-center">
+                    <h1 class="display-5">Cart</h1>
+                </div>
+                <div class="card-body p-0 d-flex">
+                    <ul class="list-group w-100">
+                        <li class="list-group-item border-0"> @Html.DisplayNameFor(model => model.Id) <span class="float-end">@Html.DisplayFor(model => model.Id)</span></li>
+                        <li class="list-group-item border-0"> @Html.DisplayNameFor(model => model.ProductCount) <span class="float-end">@Html.DisplayFor(model => model.ProductCount)</span></li>
+                        <li class="list-group-item border-0"> @Html.DisplayNameFor(model => model.Customer) <span class="float-end">@Html.DisplayFor(model => model.CustomerId)</span></li>
+                        <li class="list-group-item border-0"> @Html.DisplayNameFor(model => model.Product) <span class="float-end">@Html.DisplayFor(model => model.ProductId)</span></li>
+                    </ul>
+                </div>
+                <form class="card-footer p-0 text-center " asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <input class="btn btn-outline-danger my-4 float-start btn-lg" type="submit" value="Delete" />
+                    <a class="btn btn-outline-secondary my-4 text-decoration-none  float-end btn-lg" asp-action="Index">Back to List</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

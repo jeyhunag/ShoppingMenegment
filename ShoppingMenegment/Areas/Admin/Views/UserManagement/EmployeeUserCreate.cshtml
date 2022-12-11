@@ -1,0 +1,47 @@
+﻿@model ShoppingMenegment.Areas.Admin.ViewModel.UserManagmentViewModel
+
+@{
+    ViewData["Title"] = "User create for Employee";
+}
+
+<h1 class="text-center">Edit Employee</h1>
+<hr />
+
+<div class="mx-auto d-block">
+    <form class="mx-auto" asp-action="EmployeeUserCreate" method="post">
+        <div class="row">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group col">
+                <label asp-for="UserName" for="UserName" class="control-label ">UserName</label>
+                <input asp-for="UserName" class="form-control" placeholder="UserName">
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group col">
+                <label asp-for="Email" class="control-label">Email</label>
+                <input asp-for="Email" class="form-control" placeholder="Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group col">
+                <label asp-for="Password" class="control-label">Password</label>
+                <input asp-for="Password" class="form-control" placeholder="Password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col">
+                <label asp-for="EmployeeId" class="control-label"></label>
+                <select asp-for="EmployeeId" class="form-control" asp-items="Model.Employees"></select>
+            </div>
+
+        </div>
+        <div class="form-group mt-4 text-center">
+            <input type="submit" value="Create" class="btn btn-outline-success btn-lg" />
+        </div>
+    </form>
+</div>
+
+<div>
+    <a class="btn btn-outline-info btn-lg text-decoration-none  float-end" asp-action="EmployeeIndex">Back to List</a>
+</div>
+
+

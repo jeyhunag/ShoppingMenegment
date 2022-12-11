@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ShoppingMenegment</title>
+    <link rel="manifest" href="~/assets/favicon/manifest.json">
+    <!-- Vendors styles-->
+    <link rel="stylesheet" href="~/vendors/simplebar/css/simplebar.css">
+    <link rel="stylesheet" href="~/css/vendors/simplebar.css">
+    <!-- Main styles for this application-->
+    <link href="~/css/style.css" rel="stylesheet">
+    <link href="~/tablecss/bootstrap (2).css" rel="stylesheet" />
+    <link href="~/tablecss/bootstrap.min (2).css" rel="stylesheet" />
+    <!-- We use those styles to show code examples, you should remove them in your application.-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css" integrity="sha512-YFENbnqHbCRmJt5d+9lHimyEMt8LKSNTMLSaHjvsclnZGICeY/0KYEeiHwD1Ux4Tcao0h60tdcMv+0GljvWyHg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="~/css/examples.css" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics-->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        // Sh    ared ID
+        gtag('config', 'UA-118965717-3');
+        // Bootstrap ID
+        gtag('config', 'UA-118965717 -5');
+    </script>
+    <link href="~/vendors/coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet">
+</head>
+<body>
+        <partial name="_SidebarMenu" />
+    <div class="col-10 mt-5">
+        <main role="main" class="pb-3">
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
+
+        </main>
+    </div>
+
+    <script src="~/vendors/coreui/coreui/js/coreui.bundle.min.js"></script>
+    <script src="~/vendors/simplebar/js/simplebar.min.js"></script>
+    <!-- Plugins and scripts required by this view-->
+    <script src="~/vendors/chart.js/js/chart.min.js"></script>
+    <script src="~/vendors/coreui/chartjs/js/coreui-chartjs.js"></script>
+    <script src="~/vendors/coreui/utils/js/coreui-utils.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

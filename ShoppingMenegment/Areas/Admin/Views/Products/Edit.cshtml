@@ -1,0 +1,59 @@
+﻿@model ShoppingMenegment.Models.Entity.Product
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="text-center">Edit Product</h1>
+<hr />
+
+<div class="mx-auto d-block">
+    <form class="mx-auto"  asp-action="Edit">
+        <div class="row">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group col">
+                <label asp-for="Model" for="Model" class="control-label ">Model</label>
+                <input asp-for="Model" class="form-control" placeholder="Model">
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group col">
+                <label asp-for="Brand" for="Brand" class="control-label ">Brand</label>
+                <input asp-for="Brand" class="form-control" placeholder="Brand">
+                <span asp-validation-for="Brand" class="text-danger"></span>
+            </div>
+            <div class="form-group col">
+                <label asp-for="Name" for="Name" class="control-label ">Name</label>
+                <input asp-for="Name" class="form-control" placeholder="Name">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group col">
+                <label asp-for="Description" for="Description" class="control-label ">Description</label>
+                <input asp-for="Description" class="form-control" placeholder="Description">
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group col">
+                <label asp-for="Img" for="Description" class="control-label ">Image</label>
+                <input type="file" asp-for="Img" class="form-control" placeholder="Image">
+                <span asp-validation-for="Img" class="text-danger"></span>
+            </div>
+            <div class="form-group col">
+                <label asp-for="UnitPrice" for="UnitPrice" class="control-label ">Unit Price</label>
+                <input asp-for="UnitPrice" class="form-control" placeholder="Unit Price">
+                <span asp-validation-for="UnitPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group col">
+                <label asp-for="ProductCategoryId" class="control-label"></label>
+                <select asp-for="ProductCategoryId" class="form-control" asp-items="ViewBag.ProductCategoryId"></select>
+            </div>
+        </div>
+        <div class="form-group mt-4 text-center">
+            <input type="submit" value="Create" class="btn btn-outline-success btn-lg" />
+        </div>
+    </form>
+</div>
+
+<div>
+    <a class="btn btn-outline-info btn-lg text-decoration-none  float-end" asp-action="Index">Back to List</a>
+</div>
+

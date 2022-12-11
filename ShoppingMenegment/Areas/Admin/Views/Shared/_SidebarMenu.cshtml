@@ -1,0 +1,206 @@
+﻿<div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+    <div class="sidebar-brand d-none d-md-flex">
+        <svg class="sidebar-brand-narrow" alt="CoreUI Logo">
+            <i class="bi bi-bootstrap fs-1 ms-0 " style="color:yellow;"></i>
+        </svg>
+    </div>
+    <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
+        <li class="nav-item ">
+            <a class="nav-link" asp-controller="Request" asp-action="Index" style="color: yellow;">
+                <svg class="nav-icon ">
+                    <i class="bi bi-send fs-2 ms-0 me-4"></i>
+                    Request
+                </svg>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link" asp-controller="Branches" asp-action="Index" style="color: yellow;">
+                <svg class="nav-icon ">
+                    <i class="bi bi-building-fill-up fs-2 ms-0 me-4" style=" transform: rotate(20deg);"></i>
+                    Branch
+                </svg>
+            </a>
+        </li>
+        <li class="nav-title" style="color: yellow;">Theme</li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Carts" asp-action="Index" style="color: yellow;">
+                <svg class="nav-icon">
+                    <i class="bi bi-credit-card-2-back fs-2 ms-0 me-4"></i>
+                    Cart
+                </svg>
+
+            </a>
+        </li>
+        <li class="nav-group">
+            <a class="nav-link nav-group-toggle" style="color: yellow;">
+                <svg class="nav-icon">
+                    <i class="bi bi-person fs-2 ms-0 me-4"></i>Employee
+                </svg>
+            </a>
+            <ul class="nav-group-items">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="AppRoles" asp-action="Index" style="color: yellow;">
+                        <span class="nav-icon"></span>
+                        Role
+                    </a>
+                </li>
+         
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Employees" asp-action="Index" style="color: yellow;">
+                        <span class="nav-icon"></span>
+                        Employee
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Customers" asp-action="Index" style="color: yellow;">
+                        <span class="nav-icon"></span>
+                        Customer
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="UserManagement" asp-action="EmplyoeeIndex" style="color: yellow;">
+                        <span class="nav-icon"></span>
+                        Employee Users
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="UserManagement" asp-action="EmployeeUserCreate" style="color: yellow;">
+                        <span class="nav-icon"></span>
+                        UserEmployeeCreate
+                    </a>
+                </li>
+           
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="UserManagement" asp-action="CustomerIndex" style="color: yellow;">
+                        <span class="nav-icon"></span>
+                        CustomerUsers
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-title" style="color: yellow;">Components</li>
+        <li class="nav-group">
+            <a class="nav-link nav-group-toggle" style="color: yellow;">
+                <svg class="nav-icon">
+                    <i class="bi bi-emoji-smile fs-2 ms-0 me-4"></i> order
+                </svg>
+            </a>
+            <ul class="nav-group-items">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Orders" asp-action="Index" style="color: yellow;">
+                        <span class="nav-icon"></span>
+                        Order
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Orderitems" asp-action="Index" style="color: yellow;">
+                        <span class="nav-icon"></span>
+                        Orderitems
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-group">
+            <a class="nav-link nav-group-toggle" style="color: yellow;">
+                <svg class="nav-icon">
+                    <i class="bi bi-basket fs-2 ms-0 me-4"></i>Product
+                </svg>
+            </a>
+            <ul class="nav-group-items">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Products" asp-action="Index" style="color: yellow;">
+                        <span class="nav-icon"></span>
+                        Product
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="ProductCategory" asp-action="Index" style="color: yellow;">
+                        <span class="nav-icon"></span>
+                        ProductCategory
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Store" asp-action="Index" style="color: yellow;">
+                <svg class="nav-icon">
+                    <i class="bi bi-shop fs-2 ms-0 me-4"></i>Store
+                </svg>
+            </a>
+        </li>
+</div>
+<div class="wrapper d-flex flex-column min-vh-100 bg-light">
+    <header class="header header-sticky mb-4">
+        <div class="container-fluid">
+            <button class="header-toggler px-md-0 me-md-3" type="button"
+                    onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
+                <svg class="icon icon-lg">
+                    <use xlink:href="~/vendors/coreui/icons/svg/free.svg#cil-menu"></use>
+                </svg>
+            </button><a class="header-brand d-md-none" href="#">
+                <svg width="118" height="46" alt="CoreUI Logo">
+                    <use xlink:href="~/assets/brand/coreui.svg#full"></use>
+                </svg>
+            </a>
+            <ul class="header-nav d-none d-md-flex">
+                <li class="nav-item"><a class="nav-link ">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Users</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
+            </ul>
+            <ul class="header-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <svg class="icon icon-lg">
+                            <use xlink:href="~/vendors/coreui/icons/svg/free.svg#cil-bell"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <svg class="icon icon-lg">
+                            <use xlink:href="~/vendors/coreui/icons/svg/free.svg#cil-list-rich"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <svg class="icon icon-lg">
+                            <use xlink:href="~/vendors/coreui/icons/svg/free.svg#cil-envelope-open"></use>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+            <ul class="header-nav ms-3">
+                <li class="nav-item dropdown">
+                    <a class="nav-link py-0" data-coreui-toggle="dropdown" href="#" role="button"
+                       aria-haspopup="true" aria-expanded="false">
+                        <div class="avatar avatar-md ">
+                            <img src="~/icons/img/img-20210820-wa0001.jpg" style="width:50px; height:40px; border-radius: 50px;" class="img-fluid" />
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end pt-0 mt-3">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Logout">Log Out</a>
+                        }
+                        else
+                        {
+                            <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Signin">Sign In</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Register">Sign Up</a>
+                        }
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="header-divider"></div>
+        <div class="container-fluid">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb my-0 ms-2">
+                    <li class="breadcrumb-item">
+                        <!-- if breadcrumb is single--><span>@ViewBag.Title</span>
+                    </li>
+
+                </ol>
+            </nav>
+        </div>
+    </header>

@@ -1,0 +1,50 @@
+﻿@model ShoppingMenegment.Models.Entity.Customer
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="text-center">Edit Customer</h1>
+<hr />
+
+<div class="mx-auto d-block">
+    <form class="mx-auto"  asp-action="Edit">
+        <div class="row">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group col">
+                <label asp-for="Name" for="Name" class="control-label ">Name</label>
+                <input asp-for="Name" class="form-control" placeholder="Name">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group col">
+                <label asp-for="Surname" class="control-label">Surname</label>
+                <input asp-for="Surname" class="form-control" placeholder="Surname" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group col">
+                <label asp-for="Gender" class="control-label">Gender</label>
+                <input asp-for="Gender" class="form-control" placeholder="Gender" />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group col">
+                <label asp-for="Address" class="control-label">Address</label>
+                <input asp-for="Address" class="form-control" placeholder="Address" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group col">
+                <label asp-for="Description" class="control-label">Description</label>
+                <input asp-for="Description" class="form-control" placeholder="Description" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group mt-4 text-center">
+            <input type="submit" value="Create" class="btn btn-outline-success btn-lg" />
+        </div>
+    </form>
+</div>
+
+<div>
+    <a class="btn btn-outline-info btn-lg text-decoration-none  float-end" asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,229 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: block;
+    background-color: yellow;
+    background-size: cover;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 700px;
+    padding: 40px;
+    background-color: black;
+    background-size: cover;
+    border-radius: 22px;
+    box-shadow: 0 0 1px 1px black;
+}
+
+    form h1 {
+        width: 100%;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        text-align: center;
+        font-size: 76px;
+        font-weight: 400;
+        color: white;
+    }
+
+.left-container,
+.right-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding: 15px;
+    align-items: flex-start;
+}
+
+.input-box-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 80%;
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 2px solid white;
+    border-radius: 20px;
+}
+
+    .input-box input {
+        outline: none;
+        color: white;
+        padding: 3px 17px;
+        border: none;
+        background: none;
+        font-size: 14px;
+        width: 98%;
+        float: left;
+    }
+
+::placeholder {
+    color: white;
+}
+
+.password-settings {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 10px;
+}
+
+    .password-settings .remember-box {
+        display: flex;
+        cursor: pointer;
+    }
+
+    .password-settings #Remember_checkbox {
+        margin-right: 5px;
+        background: white;
+        cursor: pointer;
+    }
+
+label {
+    color: white;
+    font-size: 15px;
+}
+
+.remember-box label {
+    cursor: pointer;
+}
+
+.password-settings .forgot-password {
+    color: white;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.btn-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 80%;
+    width: 100%;
+}
+
+button {
+    width: 100%;
+    border-radius: 20px;
+    background: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    border: 2px solid #456;
+    transition: 0.3s;
+    margin-bottom: 20px;
+    height: 38px;
+}
+
+    button:hover {
+        border: 2px solid rgb(228, 71, 71);
+    }
+
+.sign-in {
+    font-weight: 600;
+    background: linear-gradient(35deg, rgb(219, 90, 90), rgb(168, 26, 26), rgb(112, 8, 8));
+}
+
+.right-container-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.horizontal-line {
+    width: 100%;
+}
+
+h3 {
+    text-align: center;
+    overflow: hidden;
+    font-size: 11px;
+    color: white;
+}
+
+    h3:before,
+    h3:after {
+        background-color: white;
+        content: "";
+        display: inline-block;
+        height: 1px;
+        position: relative;
+        vertical-align: middle;
+        width: 50%;
+    }
+
+    h3:before {
+        right: 0.5em;
+        margin-left: -50%;
+    }
+
+    h3:after {
+        left: 0.5em;
+        margin-right: -50%;
+    }
+
+.login-methods {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.bi {
+    color: white;
+    font-size: 28px;
+    transition: 0.3s;
+}
+
+    .bi:hover {
+        color: rgb(207, 46, 46);
+    }
+
+@media (max-width: 600px) {
+    form {
+        justify-content: center;
+        align-items: center;
+        height: 550px;
+        width: 270px;
+        padding: 40px 10px;
+    }
+
+        form h1 {
+            margin-bottom: 30px;
+        }
+
+    .left-container,
+    .right-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 390px) {
+    form {
+        height: 100vh;
+        width: 100%;
+        border-radius: 0;
+    }
+}
