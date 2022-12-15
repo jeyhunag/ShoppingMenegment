@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using ShoppingMenegment.Models;
 using ShoppingMenegment.Models.Data;
 using Microsoft.AspNetCore.Identity;
-using ShoppingMenegment.Models.Entity.Membership;
+using ShoppingMenegment.Models.Entity.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 

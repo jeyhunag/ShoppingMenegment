@@ -1,4 +1,4 @@
-﻿using ShoppingMenegment.Models.Entity.Membership;
+﻿using ShoppingMenegment.Models.Entity.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

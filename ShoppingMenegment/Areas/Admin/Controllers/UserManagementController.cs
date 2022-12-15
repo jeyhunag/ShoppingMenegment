@@ -6,7 +6,7 @@ using ShoppingMenegment.Areas.Admin.ViewModel;
 using ShoppingMenegment.Areas.Enums;
 using ShoppingMenegment.Models.Data;
 using ShoppingMenegment.Models.Entity;
-using ShoppingMenegment.Models.Entity.Membership;
+using ShoppingMenegment.Models.Entity.Identity;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace ShoppingMenegment.Areas.Admin.Controllers

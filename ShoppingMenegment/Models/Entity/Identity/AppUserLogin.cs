@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ShoppingMenegment.Models.Entity.Membership
+namespace ShoppingMenegment.Models.Entity.Identity
 {
-    public class AppRoleClaim : IdentityRoleClaim<int>
+    public class AppUserLogin : IdentityUserLogin<int>
     {
     }
 }

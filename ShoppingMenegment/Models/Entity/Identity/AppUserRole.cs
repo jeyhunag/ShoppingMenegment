@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ShoppingMenegment.Models.Entity.Membership
+namespace ShoppingMenegment.Models.Entity.Identity
 {
     public class AppUserRole : IdentityUserRole<int>
     {

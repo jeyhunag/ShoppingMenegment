@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using ShoppingMenegment.Models.Entity.Membership;
+using ShoppingMenegment.Models.Entity.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;

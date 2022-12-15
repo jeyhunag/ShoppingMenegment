@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ShoppingMenegment.Models.Data;
-using ShoppingMenegment.Models.Entity.Membership;
+using ShoppingMenegment.Models.Entity.Identity;
 
 namespace ShoppingMenegment.Areas.Admin.Controllers
 {

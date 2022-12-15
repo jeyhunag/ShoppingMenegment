@@ -1,4 +1,4 @@
-﻿using ShoppingMenegment.Models.Entity.Membership;
+﻿using ShoppingMenegment.Models.Entity.Identity;
 using System;
 using System.Collections.Generic;
 

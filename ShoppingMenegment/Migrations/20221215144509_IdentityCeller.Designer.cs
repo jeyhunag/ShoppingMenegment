@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShoppingMenegment.Models.Data;
 
@@ -11,9 +12,10 @@ using ShoppingMenegment.Models.Data;
 namespace ShoppingMenegment.Migrations
 {
     [DbContext(typeof(ShoppingMenegmentContext))]
-    partial class ShoppingMenegmentContextModelSnapshot : ModelSnapshot
+    [Migration("20221215144509_IdentityCeller")]
+    partial class IdentityCeller
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

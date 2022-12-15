@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ShoppingMenegment.Models.Data;
-using ShoppingMenegment.Models.Entity.Membership;
+using ShoppingMenegment.Models.Entity.Identity;
 
 namespace ShoppingMenegment.Areas.Admin.Controllers
 {

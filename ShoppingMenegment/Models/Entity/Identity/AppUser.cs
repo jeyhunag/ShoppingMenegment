@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ShoppingMenegment.Models.Entity.Membership
+namespace ShoppingMenegment.Models.Entity.Identity
 {
     public class AppUser : IdentityUser<int>
     {
