@@ -22,14 +22,12 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
             _roleManager = roleManager;
         }
 
-        // GET: Admin/AppRoles
         public async Task<IActionResult> Index()
         {
             List<AppRole> appRoles = await _roleManager.Roles.ToListAsync();
             return View(appRoles);
         }
 
-        // GET: Admin/AppRoles/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _roleManager.Roles == null)
@@ -47,18 +45,15 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
             return View(appRole);
         }
 
-        // GET: Admin/AppRoles/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/AppRoles/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] AppRole appRole)
+        public async Task<IActionResult> Create(AppRole appRole)
         {
             if (ModelState.IsValid)
             {
@@ -69,7 +64,6 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
             return View(appRole);
         }
 
-        // GET: Admin/AppRoles/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _roleManager.Roles == null)
@@ -85,12 +79,10 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
             return View(appRole);
         }
 
-        // POST: Admin/AppRoles/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] AppRole appRole)
+        public async Task<IActionResult> Edit(int id, AppRole appRole)
         {
             if (id != appRole.Id)
             {
@@ -122,7 +114,6 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
             return View(appRole);
         }
 
-        // GET: Admin/AppRoles/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _roleManager.Roles == null)
@@ -139,7 +130,6 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
             return View(appRole);
         }
 
-        // POST: Admin/AppRoles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

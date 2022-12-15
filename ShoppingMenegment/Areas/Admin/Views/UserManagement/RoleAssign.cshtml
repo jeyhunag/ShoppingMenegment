@@ -3,36 +3,32 @@
     ViewData["Title"] = "RoleAssign";
 }
 
-
-
-
-
-<h4>AppRole</h4>
+<h1 class="text-center">Role Assign</h1>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="RoleAssign" method="post">
-            <input hidden asp-for="userId"/>
+
+<div class="mx-auto d-block">
+    <form class="mx-auto" asp-action="RoleAssign">
+        <div class="row">
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="empFullName" class="control-label"></label>
-                <input disabled asp-for="empFullName" class="form-control" />
+            <div class="form-group col">
+                <label asp-for="empFullName" class="control-label ">Full Name</label>
+                <input disabled asp-for="empFullName" class="form-control" placeholder="Full Name">
                 <span asp-validation-for="empFullName" class="text-danger"></span>
             </div>
-
             <div class="form-group col">
                 <label asp-for="roleName" class="control-label"></label>
-                <select asp-for="roleName" class="form-control" asp-items="Model.Roles"></select>
+                <select asp-for="roleName" class="form-control" asp-items="ViewBag.Role"></select>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Role Assign" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+        </div>
+        <div class="form-group mt-4 text-center">
+            <input type="submit" value="Role Assign" class="btn btn-outline-success btn-lg" />
+        </div>
+    </form>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-info btn-lg   float-end" asp-action="EmplyoeeIndex">Back to List</a>
 </div>
 
 

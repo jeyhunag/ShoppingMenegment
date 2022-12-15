@@ -53,7 +53,7 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,OrderDate,Address,CustomerId")] Order order)
+        public async Task<IActionResult> Create( Order order)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +84,7 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,OrderDate,Address,CustomerId")] Order order)
+        public async Task<IActionResult> Edit(int id, Order order)
         {
             if (id != order.Id)
             {

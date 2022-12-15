@@ -11,10 +11,10 @@ using ShoppingMenegment.Models.Entity;
 
 namespace ShoppingMenegment.Areas.Admin.Controllers
 {
-   
-    [Authorize(Roles = "Operator")]
+
+    //[Authorize(Roles = "Operator")]
     [Area("Admin")]
-  
+
     public class ProductsController : Controller
     {
         private readonly ShoppingMenegmentContext _context;
@@ -59,7 +59,7 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create( Product product)
+        public async Task<IActionResult> Create(Product product)
         {
             var filePath = "";
 
@@ -77,7 +77,9 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
                 var unicFileName = Guid.NewGuid().ToString();
 
                 var fileName = Path.GetFileName(unicFileName + "." + product.file.FileName.Split(".")[1].ToLower());
+
                 string fullPath = uploadPath + fileName;
+
                 filePath = Path.Combine(uploadPath, fileName);
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
@@ -85,12 +87,12 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
                 }
                 product.Img = fileName;
 
-                if (ModelState.IsValid)
-                {
-                    _context.Add(product);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
-                }
+
+
+                _context.Add(product);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+
 
             }
 
@@ -117,7 +119,7 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Model,Brand,Name,Description,UnitPrice,Img,ProductCategoryId")] Product product)
+        public async Task<IActionResult> Edit(int id,  Product product)
         {
             if (id != product.Id)
             {

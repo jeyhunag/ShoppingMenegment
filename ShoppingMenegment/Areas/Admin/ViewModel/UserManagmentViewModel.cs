@@ -18,5 +18,6 @@ namespace ShoppingMenegment.Areas.Admin.ViewModel
         [DataType(DataType.Password)]
         public int EmployeeId { get; set; }
         public List<SelectListItem> Employees { get; set; }
+        public List<SelectListItem> Customers { get; set; }
     }
 }

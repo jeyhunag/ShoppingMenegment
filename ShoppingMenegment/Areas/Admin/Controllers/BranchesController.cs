@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +12,7 @@ using ShoppingMenegment.Models.Entity;
 
 namespace ShoppingMenegment.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "SuperAdmin")]
     [Area("Admin")]
     public class BranchesController : Controller
     {
@@ -53,7 +56,7 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Address,ContactNumber,StoreId")] Branch branch)
+        public async Task<IActionResult> Create( Branch branch)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +87,7 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Address,ContactNumber,StoreId")] Branch branch)
+        public async Task<IActionResult> Edit(int id, Branch branch)
         {
             if (id != branch.Id)
             {

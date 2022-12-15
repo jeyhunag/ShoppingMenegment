@@ -4,33 +4,28 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1 class="text-center mb-4 display-3">Details</h1>
 
-<div>
-    <h4>AppRole</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NormalizedName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NormalizedName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ConcurrencyStamp)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ConcurrencyStamp)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <!--Card 1-->
+        <div class=" my-2  col-md-6">
+            <div class="card  h-100 text-white bg-secondary">
+                <div class="card-header text-center">
+                    <h1 class="display-5">Branches</h1>
+                </div>
+                <div class="card-body p-0 d-flex">
+                    <ul class="list-group w-100">
+                        <li class="list-group-item border-0"> @Html.DisplayNameFor(model => model.Name) <span class="float-end">@Html.DisplayFor(model => model.Name)</span></li>
+                        <li class="list-group-item border-0"> @Html.DisplayNameFor(model => model.NormalizedName) <span class="float-end">@Html.DisplayFor(model => model.NormalizedName)</span></li>
+                        <li class="list-group-item border-0"> @Html.DisplayNameFor(model => model.ConcurrencyStamp) <span class="float-end">@Html.DisplayFor(model => model.ConcurrencyStamp)</span></li>
+                    </ul>
+                </div>
+                <div class="card-footer p-0 text-center ">
+                    <a class="btn btn-info my-4 float-start btn-lg" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+                    <a class="btn btn-warning my-4   float-end btn-lg" asp-action="Index">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

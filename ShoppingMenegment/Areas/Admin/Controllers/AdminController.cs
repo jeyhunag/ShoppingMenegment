@@ -7,7 +7,7 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdminController : Controller
     {
-       
+
         public IActionResult Index()
         {
             //var product = DBNull.product.where(product => product.deleteddate == null && product.createdbyuserId == Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value).tolist());

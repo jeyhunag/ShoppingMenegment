@@ -9,7 +9,7 @@
     <div class="row d-flex justify-content-center">
         <!--Card 1-->
         <div class=" my-2  col-md-6">
-            <div class="card text-dark h-100">
+            <div class="card text-white bg-secondary h-100">
                 <div class="card-header text-center">
                     <h1 class="display-5">Customer</h1>
                 </div>
@@ -25,8 +25,8 @@
                 </div>
                 <form class="card-footer p-0 text-center " asp-action="Delete">
                     <input type="hidden" asp-for="Id" />
-                    <input class="btn btn-outline-danger my-4 float-start btn-lg" type="submit" value="Delete" />
-                    <a class="btn btn-outline-secondary my-4 text-decoration-none  float-end btn-lg" asp-action="Index">Back to List</a>
+                    <input class="btn btn-danger my-4 float-start btn-lg" type="submit" value="Delete" />
+                    <a class="btn btn-warning my-4   float-end btn-lg" asp-action="Index">Back to List</a>
                 </form>
             </div>
         </div>

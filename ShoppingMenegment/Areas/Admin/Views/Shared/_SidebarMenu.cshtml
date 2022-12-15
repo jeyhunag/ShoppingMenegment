@@ -1,4 +1,5 @@
-﻿<div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+﻿
+<div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
     <div class="sidebar-brand d-none d-md-flex">
         <svg class="sidebar-brand-narrow" alt="CoreUI Logo">
             <i class="bi bi-bootstrap fs-1 ms-0 " style="color:yellow;"></i>
@@ -13,15 +14,30 @@
                 </svg>
             </a>
         </li>
-        <li class="nav-item ">
-            <a class="nav-link" asp-controller="Branches" asp-action="Index" style="color: yellow;">
-                <svg class="nav-icon ">
-                    <i class="bi bi-building-fill-up fs-2 ms-0 me-4" style=" transform: rotate(20deg);"></i>
-                    Branch
-                </svg>
-            </a>
-        </li>
-        <li class="nav-title" style="color: yellow;">Theme</li>
+        @if (User.Identity.IsAuthenticated)
+        {
+            @if (User.IsInRole("SuperAdmin"))
+            {
+                <li class="nav-item ">
+                    <a class="nav-link" asp-controller="Branches" asp-action="Index" style="color: yellow;">
+                        <svg class="nav-icon ">
+                            <i class="bi bi-building-fill-up fs-2 ms-0 me-4" style=" transform: rotate(20deg);"></i>
+                            Branch
+                        </svg>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Store" asp-action="Index" style="color: yellow;">
+                        <svg class="nav-icon">
+                            <i class="bi bi-shop fs-2 ms-0 me-4"></i>Store
+                        </svg>
+                    </a>
+                </li>
+            }
+
+        }
+
+
         <li class="nav-item">
             <a class="nav-link" asp-controller="Carts" asp-action="Index" style="color: yellow;">
                 <svg class="nav-icon">
@@ -31,32 +47,40 @@
 
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Employees" asp-action="Index" style="color: yellow;">
+                <svg class="nav-icon">
+                    <i class="bi bi-person fs-2 ms-0 me-4"></i>
+                    Employee
+                </svg>
+
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Customers" asp-action="Index" style="color: yellow;">
+                <svg class="nav-icon">
+                    <i class="bi bi-person-plus-fill fs-2 ms-0 me-4"></i>
+                    Customer
+                </svg>
+
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="AppRoles" asp-action="Index" style="color: yellow;">
+                <svg class="nav-icon">
+                    <i class="bi bi-person-badge fs-2 ms-0 me-4"></i>
+                    Role
+                </svg>
+
+            </a>
+        </li>
         <li class="nav-group">
             <a class="nav-link nav-group-toggle" style="color: yellow;">
                 <svg class="nav-icon">
-                    <i class="bi bi-person fs-2 ms-0 me-4"></i>Employee
+                    <i class="bi bi-people-fill fs-2 ms-0 me-4"></i>User Managment
                 </svg>
             </a>
             <ul class="nav-group-items">
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="AppRoles" asp-action="Index" style="color: yellow;">
-                        <span class="nav-icon"></span>
-                        Role
-                    </a>
-                </li>
-         
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Employees" asp-action="Index" style="color: yellow;">
-                        <span class="nav-icon"></span>
-                        Employee
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Customers" asp-action="Index" style="color: yellow;">
-                        <span class="nav-icon"></span>
-                        Customer
-                    </a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" asp-controller="UserManagement" asp-action="EmplyoeeIndex" style="color: yellow;">
                         <span class="nav-icon"></span>
@@ -64,16 +88,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" asp-controller="UserManagement" asp-action="EmployeeUserCreate" style="color: yellow;">
-                        <span class="nav-icon"></span>
-                        UserEmployeeCreate
-                    </a>
-                </li>
-           
-                <li class="nav-item">
                     <a class="nav-link" asp-controller="UserManagement" asp-action="CustomerIndex" style="color: yellow;">
                         <span class="nav-icon"></span>
-                        CustomerUsers
+                        Customer Users
                     </a>
                 </li>
             </ul>
@@ -120,13 +137,6 @@
                     </a>
                 </li>
             </ul>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" asp-controller="Store" asp-action="Index" style="color: yellow;">
-                <svg class="nav-icon">
-                    <i class="bi bi-shop fs-2 ms-0 me-4"></i>Store
-                </svg>
-            </a>
         </li>
 </div>
 <div class="wrapper d-flex flex-column min-vh-100 bg-light">

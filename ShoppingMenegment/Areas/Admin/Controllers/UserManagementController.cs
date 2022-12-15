@@ -7,6 +7,7 @@ using ShoppingMenegment.Areas.Enums;
 using ShoppingMenegment.Models.Data;
 using ShoppingMenegment.Models.Entity;
 using ShoppingMenegment.Models.Entity.Membership;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace ShoppingMenegment.Areas.Admin.Controllers
 {
@@ -80,6 +81,8 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
             }
             return View(userManagmentViewModels);
         }
+
+
         public IActionResult EmployeeUserCreate()
         {
             IEnumerable<Employee> empList = _context.Employees;
@@ -89,6 +92,7 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
 
             return View(viewModel);
         }
+
 
 
         [HttpPost]
@@ -114,11 +118,69 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
 
                 return View(viewModel);
             }
-
-
-
         }
 
+        public async Task<IActionResult> Details(int? id)
+        {
+            UserManagmentViewModel viewModel = new UserManagmentViewModel();
+            if (id == null || viewModel == null)
+            {
+                return NotFound();
+            }
+
+            var view = await _context.Users
+         .FirstOrDefaultAsync(m => m.Id == id);
+            if (view == null)
+            {
+                return NotFound();
+            }
+
+            return View(view);
+        }
+
+
+        //public IActionResult CustomerUserCreate()
+        //{
+        //    IEnumerable<Customer> custome1 = _context.Customers;
+        //    List<SelectListItem> customers = ConvertCustomertoListItem(custome1);
+        //    UserManagmentViewModel viewModel = new UserManagmentViewModel();
+        //    viewModel.Customers = customers;
+
+        //    return View(viewModel);
+        //}
+
+
+
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> CustomerUserCreate(UserManagmentViewModel viewModel)
+        //{
+        //    try
+        //    {
+        //        AppUser appUser = new AppUser()
+        //        {
+        //            UserName = viewModel.UserName,
+        //            Email = viewModel.Email,
+        //            CustomerId = viewModel.CustomerId,
+        //            UserType = (int)UserType.CustomerUser
+
+        //        };
+        //        await _userManager.CreateAsync(appUser, viewModel.Password);
+
+        //        return RedirectToAction("CustomerIndex");
+        //    }
+        //    catch (Exception)
+        //    {
+
+        //        return View(viewModel);
+        //    }
+        //}
+
+        private bool EmployeeExists(int id)
+        {
+            return _context.Employees.Any(e => e.Id == id);
+        }
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Users == null)
@@ -204,6 +266,23 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
             return listItems;
 
         }
+        public List<SelectListItem> ConvertCustomertoListItem(IEnumerable<Customer> list)
+        {
+
+            List<SelectListItem> listItems = new List<SelectListItem>();
+            foreach (var item in list)
+            {
+                SelectListItem listItem = new SelectListItem()
+                {
+                    Value = item.Id.ToString(),
+                    Text = item.Name + " - " + item.Surname
+
+                };
+                listItems.Add(listItem);
+            }
+            return listItems;
+
+        }
         public List<SelectListItem> ConvertRoletoListItem(IEnumerable<AppRole> list)
         {
 
@@ -224,6 +303,7 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
         public async Task<IActionResult> RoleAssign(int? id)
         {
             UserRoleViewModel viewModel = new UserRoleViewModel();
+            ViewBag.Role = new SelectList(_context.Roles.ToList(), "Id", "Name");
             if (id == null || _context.Users == null)
             {
                 return NotFound();
@@ -275,7 +355,7 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
             {
                 AppUser appUser = await _userManager.FindByIdAsync(viewModel.userId.ToString());
                 await _userManager.AddToRoleAsync(appUser, viewModel.roleName);
-
+                ViewBag.Role = new SelectList(_context.Roles.ToList(), "Id", "Name");
                 return RedirectToAction("EmplyoeeIndex");
             }
 
