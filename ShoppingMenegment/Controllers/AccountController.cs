@@ -96,10 +96,6 @@ namespace ShoppingMenegment.Controllers
                     UserType = (int)UserType.CustomerUser,
                     CustomerId = customer.Id
                 };
-                if (model.Celler == true)
-                {
-                    appUser.Request = true;
-                }
                 var result = await userManager.CreateAsync(appUser, model.Password);
                 if (result.Succeeded)
                 {

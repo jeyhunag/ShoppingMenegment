@@ -7,7 +7,7 @@ using ShoppingMenegment.Models.Entity;
 namespace ShoppingMenegment.Areas.Admin.Controllers
 {
  
-    [Authorize(Roles = "Manager")]
+    [Authorize(Roles = "Operator")]
     [Area("Admin")]
    
     public class ProductCategoryController : Controller

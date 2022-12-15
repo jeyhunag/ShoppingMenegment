@@ -18,7 +18,6 @@ namespace ShoppingMenegment.Models.FormModel
         [DataType(DataType.Password)]
         [Compare("Password")]
         public string PasswordConfirm { get; set; }
-        public bool Celler { get; set; }
 
         public string Name { get; set; }
         public string Surname { get; set; }

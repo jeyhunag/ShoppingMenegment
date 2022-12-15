@@ -33,68 +33,66 @@
                         </svg>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Carts" asp-action="Index" style="color: yellow;">
+                        <svg class="nav-icon">
+                            <i class="bi bi-credit-card-2-back fs-2 ms-0 me-4"></i>
+                            Cart
+                        </svg>
+
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Employees" asp-action="Index" style="color: yellow;">
+                        <svg class="nav-icon">
+                            <i class="bi bi-person fs-2 ms-0 me-4"></i>
+                            Employee
+                        </svg>
+
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Customers" asp-action="Index" style="color: yellow;">
+                        <svg class="nav-icon">
+                            <i class="bi bi-person-plus-fill fs-2 ms-0 me-4"></i>
+                            Customer
+                        </svg>
+
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="AppRoles" asp-action="Index" style="color: yellow;">
+                        <svg class="nav-icon">
+                            <i class="bi bi-person-badge fs-2 ms-0 me-4"></i>
+                            Role
+                        </svg>
+
+                    </a>
+                </li>
+                <li class="nav-group">
+                    <a class="nav-link nav-group-toggle" style="color: yellow;">
+                        <svg class="nav-icon">
+                            <i class="bi bi-people-fill fs-2 ms-0 me-4"></i>User Managment
+                        </svg>
+                    </a>
+                    <ul class="nav-group-items">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="UserManagement" asp-action="EmplyoeeIndex" style="color: yellow;">
+                                <span class="nav-icon"></span>
+                                Employee Users
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="UserManagement" asp-action="CustomerIndex" style="color: yellow;">
+                                <span class="nav-icon"></span>
+                                Customer Users
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             }
 
         }
-
-
-        <li class="nav-item">
-            <a class="nav-link" asp-controller="Carts" asp-action="Index" style="color: yellow;">
-                <svg class="nav-icon">
-                    <i class="bi bi-credit-card-2-back fs-2 ms-0 me-4"></i>
-                    Cart
-                </svg>
-
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" asp-controller="Employees" asp-action="Index" style="color: yellow;">
-                <svg class="nav-icon">
-                    <i class="bi bi-person fs-2 ms-0 me-4"></i>
-                    Employee
-                </svg>
-
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" asp-controller="Customers" asp-action="Index" style="color: yellow;">
-                <svg class="nav-icon">
-                    <i class="bi bi-person-plus-fill fs-2 ms-0 me-4"></i>
-                    Customer
-                </svg>
-
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" asp-controller="AppRoles" asp-action="Index" style="color: yellow;">
-                <svg class="nav-icon">
-                    <i class="bi bi-person-badge fs-2 ms-0 me-4"></i>
-                    Role
-                </svg>
-
-            </a>
-        </li>
-        <li class="nav-group">
-            <a class="nav-link nav-group-toggle" style="color: yellow;">
-                <svg class="nav-icon">
-                    <i class="bi bi-people-fill fs-2 ms-0 me-4"></i>User Managment
-                </svg>
-            </a>
-            <ul class="nav-group-items">
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="UserManagement" asp-action="EmplyoeeIndex" style="color: yellow;">
-                        <span class="nav-icon"></span>
-                        Employee Users
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="UserManagement" asp-action="CustomerIndex" style="color: yellow;">
-                        <span class="nav-icon"></span>
-                        Customer Users
-                    </a>
-                </li>
-            </ul>
-        </li>
         <li class="nav-title" style="color: yellow;">Components</li>
         <li class="nav-group">
             <a class="nav-link nav-group-toggle" style="color: yellow;">
@@ -117,27 +115,35 @@
                 </li>
             </ul>
         </li>
-        <li class="nav-group">
-            <a class="nav-link nav-group-toggle" style="color: yellow;">
-                <svg class="nav-icon">
-                    <i class="bi bi-basket fs-2 ms-0 me-4"></i>Product
-                </svg>
-            </a>
-            <ul class="nav-group-items">
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Products" asp-action="Index" style="color: yellow;">
-                        <span class="nav-icon"></span>
-                        Product
+        @if (User.Identity.IsAuthenticated)
+        {
+            @if (User.IsInRole("Operator"))
+            {
+                <li class="nav-group">
+                    <a class="nav-link nav-group-toggle" style="color: yellow;">
+                        <svg class="nav-icon">
+                            <i class="bi bi-basket fs-2 ms-0 me-4"></i>Product
+                        </svg>
                     </a>
+                    <ul class="nav-group-items">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Products" asp-action="Index" style="color: yellow;">
+                                <span class="nav-icon"></span>
+                                Product
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="ProductCategory" asp-action="Index" style="color: yellow;">
+                                <span class="nav-icon"></span>
+                                ProductCategory
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="ProductCategory" asp-action="Index" style="color: yellow;">
-                        <span class="nav-icon"></span>
-                        ProductCategory
-                    </a>
-                </li>
-            </ul>
-        </li>
+            }
+
+        }
+
 </div>
 <div class="wrapper d-flex flex-column min-vh-100 bg-light">
     <header class="header header-sticky mb-4">
