@@ -10,7 +10,9 @@ namespace ShoppingMenegment.Models.Data
 {
     public partial class ShoppingMenegmentContext : IdentityDbContext<AppUser, AppRole, int, AppUserClaim, AppUserRole, AppUserLogin, AppRoleClaim, AppUserToken>
     {
-
+        public ShoppingMenegmentContext()
+        {
+        }
 
         public ShoppingMenegmentContext(DbContextOptions<ShoppingMenegmentContext> options)
             : base(options)
@@ -28,6 +30,7 @@ namespace ShoppingMenegment.Models.Data
         public virtual DbSet<Product> Products { get; set; } = null!;
         public virtual DbSet<ProductCategory> ProductCategories { get; set; } = null!;
         public virtual DbSet<Store> Stores { get; set; } = null!;
+        public virtual DbSet<Basket> Baskets { get; set; }
 
         #region Membership
         public DbSet<AppUser> Users { get; set; }

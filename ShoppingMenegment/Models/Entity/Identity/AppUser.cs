@@ -11,7 +11,6 @@ namespace ShoppingMenegment.Models.Entity.Identity
         public int UserType { get; set; }
         public int? EmployeeId { get; set; }
         public int? CustomerId { get; set; }
-        public bool Request { get; set; }
 
     }
 }

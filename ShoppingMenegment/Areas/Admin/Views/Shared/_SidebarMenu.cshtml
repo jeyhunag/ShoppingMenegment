@@ -1,19 +1,10 @@
-﻿
-<div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+﻿<div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
     <div class="sidebar-brand d-none d-md-flex">
         <svg class="sidebar-brand-narrow" alt="CoreUI Logo">
             <i class="bi bi-bootstrap fs-1 ms-0 " style="color:yellow;"></i>
         </svg>
     </div>
     <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
-        <li class="nav-item ">
-            <a class="nav-link" asp-controller="Request" asp-action="Index" style="color: yellow;">
-                <svg class="nav-icon ">
-                    <i class="bi bi-send fs-2 ms-0 me-4"></i>
-                    Request
-                </svg>
-            </a>
-        </li>
         @if (User.Identity.IsAuthenticated)
         {
             @if (User.IsInRole("SuperAdmin"))

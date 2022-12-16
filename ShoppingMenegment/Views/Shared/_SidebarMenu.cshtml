@@ -3,13 +3,24 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
         <a class="navbar-brand" href="#page-top"><img src="~/assetsH/img/navbar-logo.svg" alt="..." /></a>
+        @*       @foreach (var item in db.Users.FirstOrDefault(x => x.UserName == "UserName"))
+        {
+        @if (User.Identity.IsAuthenticated)
+        {
+        <a class="navbar-brand" href="#page-top">User Name:@Html.Raw(item.UserName)</a>
+        }
+        }*@
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars ms-1"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0 ">
-                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <a asp-controller="Basket" asp-action="Index" class="btn border">
+                    <i class="bi bi-basket text-primary"></i>
+                    Basket<span id="basket-cart" class="badge">@ViewBag.Count</span>
+                </a>
                 <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Login</a>
@@ -90,7 +101,7 @@
                             <div class="portfolio-hover">
                                 <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="~/ImgProduct/@item.Img" alt="#"/>
+                            <img class="img-fluid" src="~/ImgProduct/@item.Img" alt="#" />
                         </a>
                         <div class="portfolio-caption">
                             <div class="portfolio-caption-heading">@Html.Raw(item.Model)</div>
@@ -99,12 +110,14 @@
                             <div class="text-start fw-bolder">Description: <span class="float-end text-secondary"> @Html.Raw(item.Description)</span> </div>
                             <div class="text-start fw-bolder">UnitPrice: <span class="float-end text-secondary"> @Html.Raw(item.UnitPrice)</span> </div>
                             <div class="text-start fw-bolder">Product Category: <span class="float-end text-secondary"> @Html.Raw(item.ProductCategoryId)</span> </div>
+                            <a data-id="@item.Id" href="#" class="btn btn-sm  p-0 basket-btn"><i class="bi bi-basket text-primary mr-1"></i>Add To Cart</a>
+                            <span id="badge-@item.Id" class="badge badge-danger"></span>
                         </div>
                     </div>
                 }
-               
+
             </div>
-           
+
         </div>
     </div>
 </section>

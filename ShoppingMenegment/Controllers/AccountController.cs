@@ -33,6 +33,7 @@ namespace ShoppingMenegment.Controllers
         [HttpPost]
         async public Task<IActionResult> Signin(UserFormModel model)
         {
+            String UserName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
             if (ModelState.IsValid)
             {
                 var appUser = await userManager.FindByNameAsync(model.Username);

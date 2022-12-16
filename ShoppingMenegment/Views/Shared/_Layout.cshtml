@@ -15,22 +15,68 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="~/cssH/styles.css" rel="stylesheet" />
     <title>Agency - Start Bootstrap Theme</title>
-    
+
 </head>
 <body id="page-top">
     <partial name="_SidebarMenu" />
     @RenderBody()
 
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="~/jsH/scripts.js"></script>
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <!-- * *                               SB Forms JS                               * *-->
-    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
+
+    <a href="~/lib/jquery/dist/jquery.min.map">~/lib/jquery/dist/jquery.min.map</a>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/jsH/scripts.js"></script>
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <script>
+
+        $('.basket-btn').click(function (z) {
+            z.preventDefault();
+            var id = $(this).data('id');
+
+            var msgg = $(this).parent().next().children().attr('id');
+
+
+
+            $.ajax({
+                type: 'Get',
+                url: `/home/AddToCart/${id}`,
+                success: function (response) {
+                    if (response.error == false) {
+
+                        var txt = $('#basket-cart').text();
+                        var txt = parseInt(txt);
+                        txt = txt + 1;
+                        $('#basket-cart').text(txt);
+
+                        $(`#${msgg}`).text(response.msg);
+
+                        $(`#${msgg}`).addClass('active');
+
+                        setTimeout(function () {
+                            $(`#${msgg}`).removeClass('active');
+                        }, 2000);
+
+                    }
+
+                    else {
+                        $(`#${msgg}`).text(response.msg);
+                        $(`#${msgg}`).addClass('active');
+                        setTimeout(function () {
+                            $(`#${msgg}`).removeClass('active');
+                        }, 1000);
+
+
+
+                        console.log(msgg);
+                    }
+                }
+
+            });
+
+        });
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
