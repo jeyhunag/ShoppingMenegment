@@ -17,9 +17,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0 ">
-                <a asp-controller="Basket" asp-action="Index" class="btn border">
-                    <i class="bi bi-basket text-primary"></i>
-                    Basket<span id="basket-cart" class="badge">@ViewBag.Count</span>
+                <a asp-controller="Basket" asp-action="Index" style="transform:scale(1.3);">
+                    <i class="bi bi-cart4"></i>
+                    <span id="basket-cart" class="badge me-3">@ViewBag.Count</span>
                 </a>
                 <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
                 <li class="nav-item dropdown">
@@ -89,8 +89,7 @@
 <section class="page-section bg-light" id="portfolio">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Portfolio</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h2 class="section-heading text-uppercase">Shopping</h2>
         </div>
         <div class="row">
             <div class="col-lg-4 col-sm-6 mb-4 ">
@@ -110,8 +109,7 @@
                             <div class="text-start fw-bolder">Description: <span class="float-end text-secondary"> @Html.Raw(item.Description)</span> </div>
                             <div class="text-start fw-bolder">UnitPrice: <span class="float-end text-secondary"> @Html.Raw(item.UnitPrice)</span> </div>
                             <div class="text-start fw-bolder">Product Category: <span class="float-end text-secondary"> @Html.Raw(item.ProductCategoryId)</span> </div>
-                            <a data-id="@item.Id" href="#" class="btn btn-sm  p-0 basket-btn"><i class="bi bi-basket text-primary mr-1"></i>Add To Cart</a>
-                            <span id="badge-@item.Id" class="badge badge-danger"></span>
+                            <a data-id="@item.Id" href="#" class="btn  btn-outline-warning my-3  basket-btn btn-lg"><i class="bi bi-basket mx-1 "></i>Add To Cart</a>
                         </div>
                     </div>
                 }

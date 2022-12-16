@@ -138,7 +138,14 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
             return View(view);
         }
 
+        public IActionResult Delete(int? id)
+        {
+            AppUser user = _context.Users.Where(p => p.Id == id).FirstOrDefault();
+            _context.Users.Remove(user);
+            _context.SaveChanges();
 
+            return RedirectToAction("EmplyoeeIndex");
+        }
         //public IActionResult CustomerUserCreate()
         //{
         //    IEnumerable<Customer> custome1 = _context.Customers;

@@ -15,6 +15,6 @@ namespace ShoppingMenegment.Models.Entity
         public int CustomerId { get; set; }
 
         public  Customer? Customer { get; set; } = null!;
-        public  ICollection<Orderitem>? Orderitems { get; set; }
+        public  ICollection<Orderitem> Orderitems { get; set; }
     }
 }
