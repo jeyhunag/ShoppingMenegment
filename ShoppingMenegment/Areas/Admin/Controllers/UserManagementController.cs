@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -7,10 +8,12 @@ using ShoppingMenegment.Areas.Enums;
 using ShoppingMenegment.Models.Data;
 using ShoppingMenegment.Models.Entity;
 using ShoppingMenegment.Models.Entity.Identity;
+using System.Data;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace ShoppingMenegment.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "SuperAdmin,Manager")]
     [Area("Admin")]
     public class UserManagementController : Controller
     {
@@ -146,43 +149,7 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
 
             return RedirectToAction("EmplyoeeIndex");
         }
-        //public IActionResult CustomerUserCreate()
-        //{
-        //    IEnumerable<Customer> custome1 = _context.Customers;
-        //    List<SelectListItem> customers = ConvertCustomertoListItem(custome1);
-        //    UserManagmentViewModel viewModel = new UserManagmentViewModel();
-        //    viewModel.Customers = customers;
 
-        //    return View(viewModel);
-        //}
-
-
-
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> CustomerUserCreate(UserManagmentViewModel viewModel)
-        //{
-        //    try
-        //    {
-        //        AppUser appUser = new AppUser()
-        //        {
-        //            UserName = viewModel.UserName,
-        //            Email = viewModel.Email,
-        //            CustomerId = viewModel.CustomerId,
-        //            UserType = (int)UserType.CustomerUser
-
-        //        };
-        //        await _userManager.CreateAsync(appUser, viewModel.Password);
-
-        //        return RedirectToAction("CustomerIndex");
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //        return View(viewModel);
-        //    }
-        //}
 
         private bool EmployeeExists(int id)
         {

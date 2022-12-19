@@ -6,7 +6,7 @@ using ShoppingMenegment.Models.Entity;
 
 namespace ShoppingMenegment.Areas.Admin.Controllers
 {
- 
+
     [Authorize(Roles = "Operator")]
     [Area("Admin")]
    

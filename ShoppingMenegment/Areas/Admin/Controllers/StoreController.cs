@@ -7,7 +7,7 @@ using System.Data;
 
 namespace ShoppingMenegment.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "SuperAdmin")]
+    [Authorize(Roles = "SuperAdmin,Manager")]
     [Area("Admin")]
     public class StoreController : Controller
     {

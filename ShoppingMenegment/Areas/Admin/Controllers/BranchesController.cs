@@ -12,7 +12,7 @@ using ShoppingMenegment.Models.Entity;
 
 namespace ShoppingMenegment.Areas.Admin.Controllers
 {
-    [Authorize(Roles = "SuperAdmin")]
+    [Authorize(Roles = "SuperAdmin,Manager")]
     [Area("Admin")]
     public class BranchesController : Controller
     {

@@ -11,6 +11,7 @@ using ShoppingMenegment.Models.Entity;
 
 namespace ShoppingMenegment.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "SuperAdmin,Manager")]
     [Area("Admin")]
     public class CartsController : Controller
     {
@@ -82,8 +83,8 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "Id", "Id", cart.CustomerId);
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id", cart.ProductId);
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "Id", "Name", cart.CustomerId);
+            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Name", cart.ProductId);
             return View(cart);
         }
 

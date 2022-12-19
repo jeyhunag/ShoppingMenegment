@@ -84,28 +84,7 @@
             }
 
         }
-        <li class="nav-title" style="color: yellow;">Components</li>
-        <li class="nav-group">
-            <a class="nav-link nav-group-toggle" style="color: yellow;">
-                <svg class="nav-icon">
-                    <i class="bi bi-emoji-smile fs-2 ms-0 me-4"></i> order
-                </svg>
-            </a>
-            <ul class="nav-group-items">
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Orders" asp-action="Index" style="color: yellow;">
-                        <span class="nav-icon"></span>
-                        Order
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Orderitems" asp-action="Index" style="color: yellow;">
-                        <span class="nav-icon"></span>
-                        Orderitems
-                    </a>
-                </li>
-            </ul>
-        </li>
+
         @if (User.Identity.IsAuthenticated)
         {
             @if (User.IsInRole("Operator"))
@@ -131,6 +110,27 @@
                         </li>
                     </ul>
                 </li>
+        <li class="nav-group">
+            <a class="nav-link nav-group-toggle" style="color: yellow;">
+                <svg class="nav-icon">
+                    <i class="bi bi-emoji-smile fs-2 ms-0 me-4"></i> order
+                </svg>
+            </a>
+            <ul class="nav-group-items">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Orders" asp-action="Index" style="color: yellow;">
+                        <span class="nav-icon"></span>
+                        Order
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Orderitems" asp-action="Index" style="color: yellow;">
+                        <span class="nav-icon"></span>
+                        Orderitems
+                    </a>
+                </li>
+            </ul>
+        </li>
             }
 
         }
