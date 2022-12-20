@@ -91,30 +91,9 @@
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Shopping</h2>
         </div>
-        <div class="row">
-            <div class="col-lg-4 col-sm-6 mb-4 ">
-                @foreach (var item in db.Products.ToList())
-                {
-                    <div class="portfolio-item ">
-                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                            <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="~/ImgProduct/@item.Img" alt="#" />
-                        </a>
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">@Html.Raw(item.Model)</div>
-                            <div class="text-start fw-bolder">Brand: <span class="float-end text-secondary"> @Html.Raw(item.Brand)</span> </div>
-                            <div class="text-start fw-bolder">Name: <span class="float-end text-secondary"> @Html.Raw(item.Name)</span> </div>
-                            <div class="text-start fw-bolder">Description: <span class="float-end text-secondary"> @Html.Raw(item.Description)</span> </div>
-                            <div class="text-start fw-bolder">UnitPrice: <span class="float-end text-secondary"> @Html.Raw(item.UnitPrice)</span> </div>
-                            <div class="text-start fw-bolder">Product Category: <span class="float-end text-secondary"> @Html.Raw(item.ProductCategoryId)</span> </div>
-                            <a data-id="@item.Id" href="#" class="btn  btn-outline-warning my-3  basket-btn btn-lg"><i class="bi bi-basket mx-1 "></i>Add To Cart</a>
-                        </div>
-                    </div>
-                }
+        <div class="row ">
 
-            </div>
+            <partial name="Cards" />
 
         </div>
     </div>

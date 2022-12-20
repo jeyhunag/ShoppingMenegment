@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ShoppingMenegment.Models;
 using ShoppingMenegment.Models.Data;
-using ShoppingMenegment.Models.DataViewModel;
 using ShoppingMenegment.Models.Entity;
 using System.Diagnostics;
 using System.Security.Claims;
@@ -37,9 +36,8 @@ namespace ShoppingMenegment.Controllers
 
 
             ViewBag.Count = count;
-            var vm = new DataViewModel();
 
-            return View(vm);
+            return View();
         }
 
         public IActionResult AddToCart(int? id)

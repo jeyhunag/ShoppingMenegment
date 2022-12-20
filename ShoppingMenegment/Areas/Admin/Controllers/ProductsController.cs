@@ -12,7 +12,7 @@ using ShoppingMenegment.Models.Entity;
 namespace ShoppingMenegment.Areas.Admin.Controllers
 {
 
-    [Authorize(Roles = "Operator")]
+    //[Authorize(Roles = "Operator")]
     [Area("Admin")]
 
     public class ProductsController : Controller
@@ -119,33 +119,49 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id,  Product product)
+        public async Task<IActionResult> Edit(IFormFile file, Product product)
         {
-            if (id != product.Id)
+            var filePath = "";
+            if (product.file != null && product.file.Length > 0)
             {
-                return NotFound();
+                var imagePath = @"\ImgProduct\";
+                var uploadPath = env.WebRootPath + imagePath;
+
+                if (!Directory.Exists(uploadPath))
+                {
+                    Directory.CreateDirectory(uploadPath);
+
+                }
+
+                var unicFileName = Guid.NewGuid().ToString();
+
+                var fileName = Path.GetFileName(unicFileName + "." + product.file.FileName.Split(".")[1].ToLower());
+
+                string fullPath = uploadPath + fileName;
+
+                filePath = Path.Combine(uploadPath, fileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    product.file.CopyTo(fileStream);
+                }
+                product.Img = fileName;
+
+
+
+                _context.Add(product);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+
+
             }
+            product.UpdatedDate = DateTime.Now;
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    product.UpdatedDate = DateTime.Now;
-                    _context.Update(product);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ProductExists(product.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+
+                _context.Products.Update(product);
+                _context.SaveChanges();
+                return RedirectToAction("index");
             }
             ViewData["ProductCategoryId"] = new SelectList(_context.ProductCategories, "Id", "Name", product.ProductCategoryId);
             return View(product);
