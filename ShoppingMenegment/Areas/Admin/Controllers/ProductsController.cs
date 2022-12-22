@@ -102,6 +102,7 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
 
         public async Task<IActionResult> Edit(int? id)
         {
+
             if (id == null || _context.Products == null)
             {
                 return NotFound();
@@ -114,6 +115,7 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
             }
             ViewData["ProductCategoryId"] = new SelectList(_context.ProductCategories, "Id", "Name", product.ProductCategoryId);
             return View(product);
+
         }
 
 
@@ -148,7 +150,7 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
 
 
 
-                _context.Add(product);
+                _context.Update(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
 
@@ -183,6 +185,7 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
             }
 
             return View(product);
+
         }
 
         [HttpPost, ActionName("Delete")]

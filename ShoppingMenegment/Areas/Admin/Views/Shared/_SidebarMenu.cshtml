@@ -85,10 +85,10 @@
 
         }
 
-@*        @if (User.Identity.IsAuthenticated)
+        @if (User.Identity.IsAuthenticated)
         {
             @if (User.IsInRole("Operator"))
-            {*@
+            {
                 <li class="nav-group">
                     <a class="nav-link nav-group-toggle" style="color: yellow;">
                         <svg class="nav-icon">
@@ -131,9 +131,9 @@
                 </li>
             </ul>
         </li>
-@*            }
+            }
 
-        }*@
+        }
 
 </div>
 <div class="wrapper d-flex flex-column min-vh-100 bg-light">

@@ -1,18 +1,18 @@
 ﻿@model IEnumerable<ShoppingMenegment.Models.Entity.Employee>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Employee";
 }
 
 
-<h1 class="text-center">Employee</h1>
 
-<p class="text-center">
-    <a class="btn btn-primary btn-lg text-decoration-none " asp-action="Create">Create New</a>
+<h1 class="text-center display-3 " style="color:#FF7636;">Employee</h1>
+<p class="float-end">
+    <a class="ui inverted violet  button btn-lg " asp-action="Create"><i class="hand point right icon pe-5 fs-4"></i>Create New</a>
 </p>
 <table class="table table-hover ms-5">
     <thead>
-        <tr class="table-primary">
+        <tr class="table-primary" style="color:#FF7636;">
             <th>Id</th>
             <th>Name</th>
             <th>Surname</th>

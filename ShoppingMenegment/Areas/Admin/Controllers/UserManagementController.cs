@@ -277,7 +277,7 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
         public async Task<IActionResult> RoleAssign(int? id)
         {
             UserRoleViewModel viewModel = new UserRoleViewModel();
-            ViewBag.Role = new SelectList(_context.Roles.ToList(), "Id", "Name");
+            ViewBag.Role = new SelectList(_context.Roles.ToList(), "Name", "Name");
             if (id == null || _context.Users == null)
             {
                 return NotFound();
@@ -303,7 +303,6 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
 
                     };
 
-
                     IEnumerable<AppRole> roleList = _roleManager.Roles;
                     List<SelectListItem> selectListItems = ConvertRoletoListItem(roleList);
 
@@ -311,8 +310,6 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
                     return View(viewModel);
 
                 }
-
-
             }
             return View(viewModel);
         }
@@ -324,16 +321,16 @@ namespace ShoppingMenegment.Areas.Admin.Controllers
 
             bool isExist = await _roleManager.RoleExistsAsync(viewModel.roleName);
 
-
             if (isExist)
             {
                 AppUser appUser = await _userManager.FindByIdAsync(viewModel.userId.ToString());
+
                 await _userManager.AddToRoleAsync(appUser, viewModel.roleName);
+
                 ViewBag.Role = new SelectList(_context.Roles.ToList(), "Id", "Name");
+
                 return RedirectToAction("EmplyoeeIndex");
             }
-
-
             return View(viewModel);
         }
     }
