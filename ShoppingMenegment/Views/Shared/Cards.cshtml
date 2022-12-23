@@ -1,6 +1,7 @@
 ﻿@using ShoppingMenegment.Models.Data
 @inject ShoppingMenegmentContext db;
 <link href="~/cardscss/card.css" rel="stylesheet" />
+
 @foreach (var item in db.Products.ToList())
 {
 
@@ -16,12 +17,38 @@
                 <p class="card-price">$@Html.Raw(item.UnitPrice)</p>
             </div>
             <div class="card-footer btn-group fs-2">
-                <button class="btn btn-success me-1">Details</button>
+                <a  class="btn btn-success me-1" data-toggle="modal" data-target="#modalLoginAvatar" >Details</a>
                 <button data-id="@item.Id" class="btn btn-border basket-btn">Add To Cart</button>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="modalLoginAvatar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+        <div class="modal-dialog cascading-modal modal-avatar modal-sm" role="document">
+            <!--Content-->
+            <div class="modal-content">
+
+                <!--Header-->
+                <div class="modal-header">
+                    <img src="~/ImgProduct/@item.Img" alt="avatar" class="rounded-circle img-responsive">
+                </div>
+                <!--Body-->
+                <div class="modal-body mb-1" style="color:white; background-color: #23293B;">
+                    <h5 class="mt-1 mb-2">Model: <span style="float: right;">@Html.Raw(item.Model)</span></h5>
+                    <h5 class="mt-1 mb-2">Brand: <span style="float: right;">@Html.Raw(item.Brand)</span></h5>
+                    <h5 class="mt-1 mb-2">Name: <span style="float: right;">@Html.Raw(item.Name)</span></h5>
+                    <h5 class="mt-1 mb-2">Description: <span style="float: right;">@Html.Raw(item.Description)</span></h5>
+                    <h5 class="mt-1 mb-2">Unit Price: <span style="float: right;">$@Html.Raw(item.UnitPrice)</span></h5>
+                    <h5 class="mt-1 mb-2">Product Category: <span style="float: right;">@Html.Raw(item.ProductCategoryId)</span></h5>
+                </div>
+
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
 }
+
 
 
 
