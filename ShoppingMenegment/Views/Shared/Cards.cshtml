@@ -3,18 +3,25 @@
 <link href="~/cardscss/card.css" rel="stylesheet" />
 @foreach (var item in db.Products.ToList())
 {
-    <div class="box col-md-4">
-        <img class="img-fluid" src="~/ImgProduct/@item.Img" alt="#">
-        <div class="capa">
-            <div class="portfolio-caption-heading text-center mt-4 ">@Html.Raw(item.Model)</div>
-            <div class="my-3 ms-2">Brand: <span class="me-2"> @Html.Raw(item.Brand)</span> </div>
-            <div class="ms-2">Name: <span class="my-2 me-2"> @Html.Raw(item.Name)</span> </div>
-            <div class="my-3 ms-2">Description: <span class="me-2"> @Html.Raw(item.Description)</span> </div>
-            <div class="ms-2">UnitPrice: <span class="me-2"> @Html.Raw(item.UnitPrice)</span> </div>
-            <div class="mt-3 ms-2">Product Category: <span class=" me-2"> @Html.Raw(item.ProductCategoryId)</span> </div>
-            <a data-id="@item.Id" href="#" class="btn  btn-outline-warning  mt-4 basket-btn btn-lg"><i class="bi bi-basket mx-1 "></i>Add To Cart</a>
 
+    <div class="card me-3 col-md-4">
+        <div class="card-content ">
+            <img src="~/ImgProduct/@item.Img" alt="Img" class="card-img img-fluid">
+            <h1 class="card-title mt-2">@Html.Raw(item.Model)</h1>
+            <div class="card-body ">
+                <div class="card-star">
+                    <span class="rating-value">4.5</span>
+                    <span class="star">&#9733;</span>
+                </div>
+                <p class="card-price">$@Html.Raw(item.UnitPrice)</p>
+            </div>
+            <div class="card-footer btn-group fs-2">
+                <button class="btn btn-success me-1">Details</button>
+                <button data-id="@item.Id" class="btn btn-border basket-btn">Add To Cart</button>
+            </div>
         </div>
     </div>
 }
+
+
 

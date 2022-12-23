@@ -3,28 +3,49 @@
 @{
     ViewData["Title"] = "Delete";
 }
-<h1 class="text-center mb-4 display-3">Delete</h1>
+
+<style>
+    .card {
+        font-family: serif;
+        background-color: #B6DCDD;
+        color: #2D642C;
+        font-weight: bolder;
+        box-shadow: 10px 10px #2D642C;
+        width: 100%;
+    }
+
+    span {
+        float: right;
+        margin-right: 1rem;
+    }
+
+    .list-box {
+        margin-left: 1rem;
+        font-size: 20px;
+        height: 100%;
+        margin-top: 3rem;
+        border: 2rem;
+    }
+</style>
 
 <div class="container">
-    <div class="row d-flex justify-content-center">
+    <div class="row">
         <!--Card 1-->
-        <div class=" my-2  col-md-6">
-            <div class="card text-white bg-secondary h-100">
-                <div class="card-header text-center">
-                    <h1 class="display-5">Cart</h1>
+        <div class="col-md-6 mx-auto d-block">
+            <div class="card">
+                <div class="card-header border-4 text-center">
+                    <h1 class="display-4">Delete </h1>
                 </div>
-                <div class="card-body p-0 d-flex">
-                    <ul class="list-group w-100">
-                        <li class="list-group-item border-0"> @Html.DisplayNameFor(model => model.Id) <span class="float-end">@Html.DisplayFor(model => model.Id)</span></li>
-                        <li class="list-group-item border-0"> @Html.DisplayNameFor(model => model.ProductCount) <span class="float-end">@Html.DisplayFor(model => model.ProductCount)</span></li>
-                        <li class="list-group-item border-0"> @Html.DisplayNameFor(model => model.Customer) <span class="float-end">@Html.DisplayFor(model => model.CustomerId)</span></li>
-                        <li class="list-group-item border-0"> @Html.DisplayNameFor(model => model.Product) <span class="float-end">@Html.DisplayFor(model => model.ProductId)</span></li>
-                    </ul>
+                <div class=" list-box">
+                    <div class="mt-3"> Id: <span>@Html.DisplayFor(model => model.Id)</span></div>
+                    <div class="my-3"> Product Count: <span>@Html.DisplayFor(model => model.ProductCount)</span></div>
+                    <div> Customer:<span>@Html.DisplayFor(model => model.CustomerId)</span></div>
+                    <div class="my-3"> Product: <span>@Html.DisplayFor(model => model.ProductId)</span></div>
                 </div>
                 <form class="card-footer p-0 text-center " asp-action="Delete">
                     <input type="hidden" asp-for="Id" />
-                    <input class="btn btn-danger my-4 float-start btn-lg" type="submit" value="Delete" />
-                    <a class="btn btn-warning my-4   float-end btn-lg" asp-action="Index">Back to List</a>
+                    <input class="btn btn-danger my-4 float-start ms-3 btn-lg" type="submit" value="Delete" />
+                    <a class="btn btn-warning my-4  me-3 float-end btn-lg" asp-action="Index">Back to List</a>
                 </form>
             </div>
         </div>
