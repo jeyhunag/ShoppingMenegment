@@ -1,7 +1,7 @@
 ﻿@using ShoppingMenegment.Models.Data
 @inject ShoppingMenegmentContext db;
 <link href="~/cardscss/card.css" rel="stylesheet" />
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 @foreach (var item in db.Products.ToList())
 {
 
@@ -26,14 +26,11 @@
     <div class="modal fade" id="modalLoginAvatar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true">
         <div class="modal-dialog cascading-modal modal-avatar modal-sm" role="document">
-            <!--Content-->
             <div class="modal-content">
 
-                <!--Header-->
                 <div class="modal-header">
                     <img src="~/ImgProduct/@item.Img" alt="avatar" class="rounded-circle img-responsive">
                 </div>
-                <!--Body-->
                 <div class="modal-body mb-1" style="color:white; background-color: #23293B;">
                     <h5 class="mt-1 mb-2">Model: <span style="float: right;">@Html.Raw(item.Model)</span></h5>
                     <h5 class="mt-1 mb-2">Brand: <span style="float: right;">@Html.Raw(item.Brand)</span></h5>
@@ -44,7 +41,6 @@
                 </div>
 
             </div>
-            <!--/.Content-->
         </div>
     </div>
 }
